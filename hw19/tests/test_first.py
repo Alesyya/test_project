@@ -17,5 +17,3 @@ class TestGoogle:
 
         driver.save_screenshot('open_google_page.jpg')
         assert WebDriverWait(driver, 5).until(EC.visibility_of(locator_logo))
-
-# Завершение дз 19( лекция 19 время 2:30) создать конфиг, фото в телефоне туда поместить фикстуру, далее в тесте создать файл с тем что она пишет
