@@ -14,12 +14,11 @@ from hw20.from_page_locator import FormPageLocators_test21vek
 class Testing1(FormPageLocators_test21vek):
     def test_1(self, driver):
         """
-        test for closing the cookie window
+        test for checking the main title
         """
-        driver.get('https://www.21vek.by/')
+        driver.get("https://www.21vek.by/")
+        assert driver.title == "Онлайн-гипермаркет 21vek.by"
 
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, FormPageLocators_test21vek.cookie_locator)))
-        driver.find_element(By.XPATH, FormPageLocators_test21vek.cookie_locator).click()
 
     def test_2(self, driver):
         """
@@ -44,6 +43,8 @@ class Testing1(FormPageLocators_test21vek):
             print("Цена не снижена")
         else:
             print("Цены равны")
+
+        assert higher_price > lower_price, 'Цена снижена'
 
 
     def test_3(self, driver):
